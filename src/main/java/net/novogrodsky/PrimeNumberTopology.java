@@ -16,7 +16,9 @@ public class PrimeNumberTopology {
         builder.setSpout("spout", new NumberSpout());
         builder.setBolt("prime", new PrimeNumberBolt())
                 .shuffleGrouping("spout");
-
+        //builder.setBolt(critical, new CriticalSeverityBolt()).
+        builder.setBolt("critical", new CriticalSeverityBolt())
+                .shuffleGrouping("prime");
 
         Config conf = new Config();
 

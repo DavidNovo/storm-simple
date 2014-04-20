@@ -27,10 +27,10 @@ public class NumberSpout extends BaseRichSpout {
     @Override
     public void nextTuple() {
         // define the severity level
-        String[] severityLevels = new String[]{ "High", "Medium", "Low", "Debug" };
+        String[] severityLevels = new String[]{ "Critical", "High", "Medium", "Low", "Debug" };
         String severity = severityLevels[randomNumberGenerator.nextInt(severityLevels.length)];
 
-        // Emit the next number
+        // Emit the next tuples
         collector.emit(new Values(new Integer(currentNumber++), null, severity));
     }
 
