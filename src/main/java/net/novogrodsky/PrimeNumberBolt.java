@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Created by davidnovogrodsky_wrk on 4/12/14.
  */
-public class PrimeNumberBolt extends BaseRichBolt{
+public class PrimeNumberBolt extends BaseRichBolt {
     private OutputCollector collector;
 
     public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
@@ -25,7 +25,7 @@ public class PrimeNumberBolt extends BaseRichBolt{
     }
 
     public void execute(Tuple tuple) {
-        int number      = tuple.getInteger(0);
+        int number = tuple.getInteger(0);
         String severity = tuple.getString(2);
         if (isPrime(number)) {
             System.out.println(number + "   severity is:" + severity);

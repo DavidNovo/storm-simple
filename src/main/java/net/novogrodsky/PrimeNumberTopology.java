@@ -10,7 +10,7 @@ import backtype.storm.utils.Utils;
  * Created by davidnovogrodsky_wrk on 4/12/14.
  */
 public class PrimeNumberTopology {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         TopologyBuilder builder = new TopologyBuilder();
 
         builder.setSpout("spout", new NumberSpout());
@@ -21,8 +21,7 @@ public class PrimeNumberTopology {
         Config conf = new Config();
 
 
-
-       // conf.setDebug(true);
+        // conf.setDebug(true);
         conf.setNumWorkers(2);
 
         LocalCluster cluster = new LocalCluster();
