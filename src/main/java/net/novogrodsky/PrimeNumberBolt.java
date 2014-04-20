@@ -25,15 +25,17 @@ public class PrimeNumberBolt extends BaseRichBolt{
     }
 
     public void execute(Tuple tuple) {
-        int number = tuple.getInteger(0);
+        int number      = tuple.getInteger(0);
+        String severity = tuple.getString(2);
         if (isPrime(number)) {
-            System.out.println(number);
+            System.out.println(number + "   severity is:" + severity);
         }
         collector.ack(tuple);
     }
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("number"));
+
+        declarer.declare(new Fields("DeviceID"));
     }
 
     private boolean isPrime(int n) {

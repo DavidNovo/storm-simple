@@ -25,7 +25,7 @@ public class NumberSpout extends BaseRichSpout {
     @Override
     public void nextTuple() {
         // Emit the next number
-        collector.emit(new Values(new Integer(currentNumber++)));
+        collector.emit(new Values(new Integer(currentNumber++), null, "low"));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class NumberSpout extends BaseRichSpout {
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("number"));
+        declarer.declare(new Fields("DeviceID", "type", "severity"));
     }
 
 }
