@@ -1,17 +1,14 @@
-package net.novogrodsky;
+package net.telematics;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.base.BaseRichBolt;
-import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 
 import java.util.Map;
 
-/**
- * Created by davidnovogrodsky_wrk on 4/19/14.
- */
+
 public class CriticalSeverityBolt extends BaseRichBolt {
     private OutputCollector collector;
 

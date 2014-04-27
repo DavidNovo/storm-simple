@@ -1,4 +1,4 @@
-package net.novogrodsky;
+package net.telematics;
 
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;
@@ -14,7 +14,7 @@ public class PrinterBolt extends BaseBasicBolt {
     }
 
     @Override
-    public void declareOutputFields(OutputFieldsDeclarer ofd) {
+    public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
     }
 
 }
