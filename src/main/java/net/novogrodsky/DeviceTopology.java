@@ -7,6 +7,7 @@ import backtype.storm.utils.Utils;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
+import net.novogrodsky.PrimeNumberBolt;
 
 
 public class DeviceTopology {
@@ -31,11 +32,11 @@ public class DeviceTopology {
         builder.setSpout("spout", new DeviceSpout());
         builder.setBolt("prime", new PrimeNumberBolt())
                 .shuffleGrouping("spout");
-        builder.setBolt("criticalSeverityFilter", new CriticalSeverityFilterBolt())
+        builder.setBolt("criticalSeverityFilter", new net.telematics.CriticalSeverityFilterBolt())
                 .shuffleGrouping("prime");
-        builder.setBolt("printerBolt", new PrinterBolt())
+        builder.setBolt("printerBolt", new net.telematics.PrinterBolt())
                 .fieldsGrouping("criticalSeverityFilter", new Fields("severity"));
-        builder.setBolt("filePrintBolt", new FilePrintBolt())
+        builder.setBolt("filePrintBolt", new net.telematics.FilePrintBolt())
                 .fieldsGrouping("criticalSeverityFilter", new Fields("severity"));
 
 
